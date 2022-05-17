@@ -2,7 +2,7 @@ package com.github;
 
 import com.github.domain.MenuItem;
 import config.BaseSetup;
-import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.*;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.*;
 import pages.SearchPage;
@@ -19,7 +19,13 @@ public class SearchTest extends BaseSetup {
 
     @BeforeEach
     void openPage() {
+        System.out.println("BEFORE EACH");
         startPage.openPage();
+    }
+
+    @AfterEach
+    void afterEach () {
+        System.out.println("AFTER EACH");
     }
 
     @ValueSource(strings =  {
@@ -95,4 +101,6 @@ public class SearchTest extends BaseSetup {
                 testData.engName
         );
     }
+
+
 }
